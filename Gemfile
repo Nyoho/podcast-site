@@ -32,3 +32,5 @@ gem 'padrino', '0.13.3.2'
 # %w(core support gen helpers cache mailer admin).each do |g|
 #   gem 'padrino-' + g, '0.13.3.2'
 # end
+
+gem 'sitespec'
