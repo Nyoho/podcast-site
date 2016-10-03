@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"
+    title= @title
+    meta content="width=device-width" name="viewport"
+    meta content="Podcast,Nyoho,わしポ,WashiPo" name="Keywords"
+    meta content="わしポはわしの興味のあることに絞った内容のポッドキャストです。" name="description"
+    meta content="Nyoho" name="Author"
+    = javascript_include_tag 'script'
+    = stylesheet_link_tag :main
+  body
+    header
+      nav
+        h1.title
+          a href="/" わしポ
+    .main-container
+      main
+        = yield
+
+    footer
+      p Copyright &copy; 2016 Nyoho. All rights reserved.

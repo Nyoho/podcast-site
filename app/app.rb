@@ -5,6 +5,32 @@ module PodcastSite
     register Padrino::Helpers
     enable :sessions
 
+    get "/" do
+      render :slim, "p Hello, the top page!"
+    end
+
+    get :about, :map => '/about' do
+      render :slim, "p About"
+    end
+
+    get "/:no" do |no|
+      slim :episode, locals: {
+        episode: episodes_table[no]
+      }
+    end
+
+    def episodes_table
+      unless @episodes
+        @episodes = {}
+
+        Dir.glob('episodes/*.html').map do |filepath|
+          episode = Episode.new(filepath)
+          @episodes[episode.no] = episode
+        end
+      end
+      @episodes
+    end
+
     ##
     # Caching support.
     #
@@ -61,5 +87,39 @@ module PodcastSite
     #     render 'errors/500'
     #   end
     #
+  end
+end
+
+
+class Episode
+  attr_reader :path, :title, :description
+
+  def initialize(path)
+    @path = path
+    body
+  end
+
+  def no
+    path.match(/episodes\/(.+)\.html/)[1]
+  end
+
+  def date
+    @date = DateTime.parse(@date) if @date.class == String
+  rescue
+    STDERR.puts "Parse error date from file: path"
+    raise
+  end
+
+  def starring
+    if @starring.class == String
+      @starring = @starring.split(/\s+/)
+    end
+    @starring
+  end
+
+  def body
+    @body ||= begin
+                ERB.new(File.read(path)).result(binding)
+              end
   end
 end
