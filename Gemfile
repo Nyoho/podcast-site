@@ -34,3 +34,5 @@ gem 'padrino', '0.13.3.2'
 # end
 
 gem 'sitespec'
+gem 'dotenv'
+gem 'twitter'
