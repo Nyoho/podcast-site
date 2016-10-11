@@ -8,6 +8,13 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
+    bitters (1.5.0)
+      bourbon (~> 5.0.0.beta.7)
+      sass (~> 3.4)
+      thor (~> 0.19)
+    bourbon (5.0.0.beta.7)
+      sass (~> 3.4.22)
+      thor (~> 0.19.1)
     buftok (0.2.0)
     concurrent-ruby (1.0.2)
     diff-lcs (1.2.5)
@@ -132,6 +139,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bitters
+  bourbon
   dotenv
   padrino (= 0.13.3.2)
   rake
