@@ -36,3 +36,6 @@ gem 'padrino', '0.13.3.2'
 gem 'sitespec'
 gem 'dotenv'
 gem 'twitter'
+
+gem 'bourbon'
+gem 'bitters'
