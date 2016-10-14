@@ -47,6 +47,9 @@ GEM
     mustermann19 (0.4.4)
       enumerable-lazy
     naught (1.1.0)
+    neat (1.8.0)
+      sass (>= 3.3)
+      thor (~> 0.19)
     padrino (0.13.3.2)
       padrino-admin (= 0.13.3.2)
       padrino-cache (= 0.13.3.2)
@@ -142,6 +145,7 @@ DEPENDENCIES
   bitters
   bourbon
   dotenv
+  neat
   padrino (= 0.13.3.2)
   rake
   sass

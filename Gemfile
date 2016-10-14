@@ -38,4 +38,5 @@ gem 'dotenv'
 gem 'twitter'
 
 gem 'bourbon'
+gem 'neat'
 gem 'bitters'
