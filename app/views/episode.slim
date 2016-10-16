@@ -1,12 +1,12 @@
 .hero
   h2= episode.title
-  p= episode.date.strftime('%Y/%-m/%-d')
-
-  a href="/" Top
+  p
+    span.date= episode.date.strftime('%Y/%-m/%-d')
 
   p= episode.description
 
   h3 Starring
-  == episode.starring
+
+  p= episode.starring
 
   == episode.body

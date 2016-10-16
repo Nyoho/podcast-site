@@ -1,45 +1,58 @@
 @import "bourbon"
+@import "grid-settings"
+@import "neat/neat"
 @import "base/base"
+
+@import "footer"
 
 body
   font-family: "Hiragino Maru Gothic W4 JIS2004", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "Helvetica Neue", Helvetica, Arial, sans-serif, 'Avenir Next', Quicksand, Arial, 'Yu Gothic', 游ゴシック体, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro'
-  /* font-family: 'Avenir Next', Quicksand, Arial, YuGothic, 'Yu Gothic', 游ゴシック体, 游ゴシック, 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'Hiragino Kaku Gothic Pro', sans-serif;
   font-weight: 500
   font-size: 99%
   line-height: 2em
-  background-color: #ffffe0
   color: #555
+  background-image: url("/images/b1.jpg")
+  background-size: cover
 
 header
+  @include outer-container
   overflow: hidden
   width: 100%
+  color: white
+  a
+    color: white
+  h1
+    margin: 1ex 0
 
-/*             .main-nav {
- *             display: flex;
- *             position: relative;
- * 	        height: 44px;
- *             visibility: visible;
- *             height: 5em;
- *             width: 100%;
- *             overflow-x: auto;
- *             -webkit-overflow-scrolling: touch;
- *             }
- *             .main-nav ul {
- * 	        height: 44px;
- *             display: inline-table;
- *             max-width: 100%;
- *             }
- *             .main-nav li {
- *             float: left;
- *             word-wrap: break-word;
- *             display: table-cell;
- *             text-align: -webkit-match-parent;
- *             white-space: nowrap;
- *             padding: 0 12px;
- *             list-style: none;
- *             }
+nav
+  color: white
+  background-color: #202020
+  ul
+    display: flex
+    justify-content: flex-end
+  li
+    background-color: #404A52
+    padding: 1em 3em
+  
+.header-logo
+  text-align: center
+  margin: 1em
+  height: 300px
+  display: flex
+  align-items: center
+  justify-content: center
+  img
+    max-width: 50%
+    max-height: 200px
+    width: auto
+    height: auto
+  
+#main-container
+  @include outer-container
+  box-shadow: 0px 0px 32px -4px rgba(0,0,0,0.7)
 
 .main-nav
+  @include span-columns(9)
   width: 100%
   margin: 0 auto
   white-space: nowrap
@@ -54,29 +67,51 @@ header
     display: table-cell
     padding: 4px
 
+$main-text-margin: 48px
+@include media($mobile)
+  $main-text-margin: 8px
+  
 main
   margin: 0 auto
-  flex: 1
-  /* background: #c0f0f0;
-  padding: 10px
+  padding-bottom: 42px
+  background-color: #fff
+  h2
+    border-bottom: 1px solid #4488AA
+    padding: 17px 0 17px ($main-text-margin - 3px)
+  h3
+    border-left: 3px solid #3886B8
+    padding: 7px 0 7px ($main-text-margin - 3px)
+    margin: 32px 0 16px 0
+  p, ul
+    margin: 0 $main-text-margin 1em
+  ul
+    padding-left: 2em
+    list-style-type: disc
+.date
+  padding: 10px 20px
+  color: white
+  background-color: #4760aa
+  border-radius: 20px
+  border: none
 
 aside
   width: 30%
-  /* background: #f0c0f0;
   padding: 10px
 
 footer
+  @include outer-container
   font-size: smaller
   text-align: center
 
 @media (min-width: 600px)
   header
-    margin: 0 auto
-    max-width: 800px
+    /* margin: 0 auto
+    /* max-width: 800px
   #main-container
-    margin: 0 auto
-    max-width: 800px
-    display: flex
+    /* margin: 0 auto
+    /* max-width: 800px
+    /* display: flex
   .main
-    margin: 0 10px 0 0
+    /* margin: 0 10px 0 0
+
 

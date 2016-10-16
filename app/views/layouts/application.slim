@@ -13,12 +13,48 @@ html
     = stylesheet_link_tag :main
   body
     header
+      h1.title
+        a href="/" わしのポッドキャスト
+      .header-logo
+        img src="/images/logo.svg" alt="わしぽ"
+
+    #main-container
       nav
-        h1.title
-          a href="/" わしポ
-    .main-container
+        ul
+          li subscribe
+
       main
         = yield
 
-    footer
-      p Copyright &copy; 2016 Nyoho. All rights reserved.
+      footer.footer role="contentinfo"
+        .footer-logo
+          img alt=("Logo image") src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png" /
+        .footer-links
+          ul
+            li
+              h3 Content
+            li
+              a href="javascript:void(0)"  About
+            li
+              a href="javascript:void(0)"  Contact
+            li
+              a href="javascript:void(0)"  Products
+          ul
+            li
+              h3 Follow Us
+            li
+              a href="javascript:void(0)"  Facebook
+            li
+              a href="javascript:void(0)"  Twitter
+            li
+              a href="javascript:void(0)"  YouTube
+          ul
+            li
+              h3 Legal
+            li
+              a href="javascript:void(0)"  Terms and Conditions
+            li
+              a href="javascript:void(0)"  Privacy Policy
+        hr/
+        p Copyright &copy; 2016 Nyoho. All rights reserved.
+        
