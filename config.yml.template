@@ -1,0 +1,18 @@
+people:
+  me:
+    name: washi
+    twitter: ***
+  person1:
+    name: person1
+    twitter: ***
+title: title
+url: https://example.net
+email: nobody@exampl.net
+author: washi
+description: This is a podcast.
+description_long: This is a podcast. That\'s it.
+hashtag: same_hashtag
+itunes_podcast_url:
+keywords: a,b,c,hello,project
+language: ja
+timezone: Asia/Tokyo

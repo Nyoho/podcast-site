@@ -1,6 +1,7 @@
 require 'dotenv'
 require 'open-uri'
 require 'twitter'
+require 'rss'
 
 module PodcastSite
   class App < Padrino::Application
@@ -13,6 +14,7 @@ module PodcastSite
       super
       Dotenv.load
       setup_twitter
+      @config = YAML.load_file('config.yml')
     end
 
     def setup_twitter
@@ -25,7 +27,8 @@ module PodcastSite
     end
 
     get '/podcast.rss' do
-      'rendering rss...'
+      content_type 'application/rss+xml'
+      rss_feed
     end
 
     get "/" do
@@ -37,6 +40,7 @@ module PodcastSite
     end
 
     get "/:no" do |no|
+      @title = episodes_table[no].title + ' - ' + @config['title']
       slim :episode, locals: {
         episode: episodes_table[no]
       }
@@ -52,6 +56,28 @@ module PodcastSite
         end
       end
       @episodes
+    end
+
+    def rss_feed
+      # url = ENV['SOUND_CLOUD_RSS']
+      url = "sounds.rss"
+      rss = RSS::Parser.parse(url)
+      rss.channel.title = @config['title']
+      rss.channel.description = @config['description']
+
+      rss.channel.link = @config['url']
+      rss.channel.itunes_owner.itunes_email = @config['email']
+
+      rss.items.each do |item|
+        next unless episodes_table.has_key?(item.title)
+        episode = episodes_table[item.title]
+        item.title = episode.title
+        item.pubDate = episode.date.strftime('%a, %e %b %Y %H:%M:%S %z')
+        item.itunes_subtitle = episode.title
+        item.itunes_summary = episode.description + "\n" + episode.body
+      end
+      # require 'pry' ; binding.pry
+      rss.to_s
     end
 
     ##

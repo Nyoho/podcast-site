@@ -3,7 +3,7 @@ require 'sitespec/rspec'
 require './app/app'
 # require 'pry'
 
-Sitespec.configuration.build_path = '_site'
+Sitespec.configuration.build_path = 'public'
 
 describe 'Sitespec' do
   let(:app) do
@@ -11,7 +11,7 @@ describe 'Sitespec' do
   end
 
   %w[
-    /
+    / /podcast.rss
   ].each do |path|
     describe "GET #{path}", :sitespec do
       it "returns 200" do
