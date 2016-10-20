@@ -59,8 +59,7 @@ module PodcastSite
     end
 
     def rss_feed
-      # url = ENV['SOUND_CLOUD_RSS']
-      url = "sounds.rss"
+      url = ENV['SOUND_CLOUD_RSS']
       rss = RSS::Parser.parse(url)
       rss.channel.title = @config['title']
       rss.channel.description = @config['description']
