@@ -11,6 +11,7 @@ email: nobody@exampl.net
 author: washi
 description: This is a podcast.
 description_long: This is a podcast. That\'s it.
+sound_cloud_rss: http://feeds.soundcloud.com/users/soundcloud:*******/sounds.rss
 hashtag: same_hashtag
 itunes_podcast_url:
 keywords: a,b,c,hello,project
