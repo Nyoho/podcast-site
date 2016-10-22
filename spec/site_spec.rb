@@ -1,7 +1,8 @@
 require File.expand_path("../../config/boot.rb", __FILE__)
 require 'sitespec/rspec'
 require './app/app'
-# require 'pry'
+require 'pry'
+require 'pry-byebug'
 
 Sitespec.configuration.build_path = '_site'
 
