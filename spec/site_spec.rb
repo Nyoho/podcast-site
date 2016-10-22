@@ -3,7 +3,7 @@ require 'sitespec/rspec'
 require './app/app'
 # require 'pry'
 
-Sitespec.configuration.build_path = 'public'
+Sitespec.configuration.build_path = '_site'
 
 describe 'Sitespec' do
   let(:app) do
