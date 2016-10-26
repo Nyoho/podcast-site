@@ -12,7 +12,10 @@ describe 'Sitespec' do
   end
 
   %w[
-    / /podcast.rss
+    /
+    /podcast.rss
+    /stylesheets/main.css
+    /javascripts/script.js
   ].each do |path|
     describe "GET #{path}", :sitespec do
       it "returns 200" do
