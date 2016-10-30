@@ -1,3 +1,4 @@
+@import "normalize"
 @import "bourbon"
 @import "grid-settings"
 @import "neat/neat"
@@ -21,23 +22,30 @@ header
   color: white
   a
     color: white
+    &:hover
+      color: white
   h1
     margin: 1ex 0
+    @include media($mobile)
+      padding-left: ($mobile-main-text-margin - 3px)
 
 nav
   color: white
-  background-color: #202020
-  ul
+  background-color: #434A54
+  ul:first-child
     display: flex
     justify-content: flex-end
-  li
+  ul > li > ul > li
     background-color: #404A52
+    padding: 1em 3em
+    border: 8px solid #5BE2AC
+  ul > li > ul > li
     padding: 1em 3em
   
 .header-logo
   text-align: center
   margin: 1em
-  height: 300px
+  height: 400px
   display: flex
   align-items: center
   justify-content: center
@@ -102,16 +110,4 @@ footer
   @include outer-container
   font-size: smaller
   text-align: center
-
-@media (min-width: 600px)
-  header
-    /* margin: 0 auto
-    /* max-width: 800px
-  #main-container
-    /* margin: 0 auto
-    /* max-width: 800px
-    /* display: flex
-  .main
-    /* margin: 0 10px 0 0
-
 
