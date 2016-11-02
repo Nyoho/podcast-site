@@ -1,0 +1,96 @@
+.dropmenu
+  *zoom: 1
+  list-style-type: none
+  width: 960px
+  margin: 0 auto
+  padding: 0
+  &:before
+    content: ""
+    display: table
+  &:after
+    content: ""
+    display: table
+    clear: both
+  li
+    position: relative
+    width: 20%
+    float: left
+    margin: 0
+    padding: 0
+    text-align: center
+    a
+      display: block
+      margin: 0
+      padding: 15px 0 11px
+      color: #fff
+      font-size: 14px
+      line-height: 1
+      text-decoration: none
+    ul
+      list-style: none
+      position: absolute
+      z-index: 9999
+      top: 100%
+      left: 0
+      margin: 0
+      padding: 0
+      li
+        width: 100%
+        a
+          padding: 13px 15px
+          border-top: 1px solid #7c8c0e
+          background: #888
+          text-align: left
+    &:hover > a
+      background: #888
+    a:hover
+      background: #8aa
+
+
+.fade li
+  ul
+    visibility: hidden
+    opacity: 0
+    transition: 0s
+  &:hover ul
+    visibility: visible
+    opacity: 1
+  ul li a
+    visibility: hidden
+    opacity: 0
+    transition: .5s
+  &:hover ul li a
+    visibility: visible
+    opacity: 1
+
+.flip
+  ul
+    visibility: hidden
+    perspective: 400px
+  li:hover ul
+    visibility: visible
+  ul li
+    transform: rotateX(-90deg)
+    transform-origin: 50% 0
+    transition: .1s
+  li
+    &:hover ul li
+      transform: rotateX(0)
+      &:nth-child(1)
+        transition-delay: 0s
+      &:nth-child(2)
+        transition-delay: .1s
+      &:nth-child(3)
+        transition-delay: .2s
+      &:nth-child(4)
+        transition-delay: .3s
+    ul li
+      &:nth-last-of-type(1)
+        transition-delay: 0s
+      &:nth-last-of-type(2)
+        transition-delay: .1s
+      &:nth-last-of-type(3)
+        transition-delay: .2s
+      &:nth-last-of-type(4)
+        transition-delay: .3s
+
