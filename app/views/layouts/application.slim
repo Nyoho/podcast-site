@@ -21,7 +21,17 @@ html
     #main-container
       nav
         ul
-          li subscribe
+          li 
+            ul.dropmenu.fade.flip
+              li
+                a href="#" Subscribe!
+                ul
+                  li
+                    a href="/podcast.rss" RSS feedを直接購読
+                  li
+                    a href=@config['itunes_podcast_url'] iTunesで購読
+                  li
+                    a href=@config['android_podcast_url'] Androidで購読
 
       main
         = yield
