@@ -58,6 +58,10 @@ module PodcastSite
       @episodes
     end
 
+    def sorted_episodes
+      episodes_table.values.sort {|a,b| b.date <=> a.date }
+    end
+    
     def rss_feed
       url = @config['sound_cloud_rss']
       rss = RSS::Parser.parse(url)
