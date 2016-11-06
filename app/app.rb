@@ -32,7 +32,8 @@ module PodcastSite
     end
 
     get "/" do
-      render :slim, "p Hello, the top page!"
+      @title = @config['title']
+      slim :top, locals: { episodes: sorted_episodes }
     end
 
     get :about, :map => '/about' do
