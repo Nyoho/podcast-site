@@ -25,6 +25,7 @@ describe 'Sitespec' do
     /podcast.rss
     /stylesheets/main.css
     /javascripts/script.js
+    /return-setting.conf
   ].each do |path|
     describe "GET #{path}", :sitespec do
       it "returns 200" do

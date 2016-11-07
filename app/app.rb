@@ -40,6 +40,17 @@ module PodcastSite
       render :slim, "p About"
     end
 
+    get '/return-setting.conf' do
+      content_type 'plain/text'
+      episodes_table.values.map {|e|
+        <<"EOS"
+location #{e.audio_file_url} {
+    return 307 #{e.original_audio_file_url};
+}
+EOS
+      }.join
+    end
+
     get "/:no" do |no|
       @title = episodes_table[no].title + ' - ' + @config['title']
       slim :episode, locals: {
