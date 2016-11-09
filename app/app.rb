@@ -28,7 +28,7 @@ module PodcastSite
 
     get '/podcast.rss' do
       content_type 'application/rss+xml'
-      rss_feed
+      @rss_feed
     end
 
     get "/" do
@@ -76,23 +76,33 @@ EOS
     
     def rss_feed
       url = @config['sound_cloud_rss']
+      # url = 'sounds.rss'
       rss = RSS::Parser.parse(url)
       rss.channel.title = @config['title']
+      rss.channel.itunes_author = @config['author']
       rss.channel.description = @config['description']
+      rss.channel.language = @config['language']
+      rss.channel.webMaster = @config['email']
 
       rss.channel.link = @config['url']
+      rss.channel.image.url = rss.channel.itunes_image.href = @config['url'] + '/images/artwork.png'
       rss.channel.itunes_owner.itunes_email = @config['email']
 
+      rss.items.select!{|i| episodes_table.has_key?(i.title)}
       rss.items.each do |item|
-        next unless episodes_table.has_key?(item.title)
         episode = episodes_table[item.title]
         item.title = episode.title
+        item.link = @config['url'] + '/' + episode.no + '/'
+        item.itunes_author = @config['author']
         item.pubDate = episode.date.strftime('%a, %e %b %Y %H:%M:%S %z')
-        item.itunes_subtitle = episode.title
-        item.itunes_summary = episode.description + "\n" + episode.body
+        item.itunes_subtitle = episode.description
+        item.description = %Q(<p>この説明は <a href="#{item.link}">#{item.link}</a> でも見られます。</p>\n<p>#{episode.description}</p>\n#{episode.body}<p>是非このエピソードの感想を<a href=\"https://twitter.com/intent/tweet?text=%23#{@config['hashtag']}%20ep#{episode.no}%20\">Twitterでつぶやいてください</a> (このlinkならハッシュタグ ##{@config['hashtag']} が自動でつきます)!</p>)
+        item.itunes_summary = nil
+        episode.original_audio_file_url =  item.enclosure.url
+        item.enclosure.url = @config['url'] + episode.audio_file_url
+        episode.duration = item.itunes_duration
       end
-      # require 'pry' ; binding.pry
-      rss.to_s
+      @rss_feed = rss.to_s
     end
 
     ##
