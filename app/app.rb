@@ -15,6 +15,9 @@ module PodcastSite
       Dotenv.load
       setup_twitter
       @config = YAML.load_file('config.yml')
+      @people = YAML.load_file('people.yml')
+      @ogimage_url = @config['url'] + '/images/ogimage.jpg'
+      rss_feed
     end
 
     def setup_twitter
@@ -161,6 +164,43 @@ EOS
     #     render 'errors/500'
     #   end
     #
+  end
+
+  class UpdateTask
+    def initialize
+      super
+      Dotenv.load
+      setup_twitter
+      @config = YAML.load_file('config.yml')
+    end
+
+    def setup_twitter
+      @twitter = Twitter::REST::Client.new do |config|
+        config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']
+        config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
+        config.access_token        = ENV['TWITTER_OAUTH_TOKEN']
+        config.access_token_secret = ENV['TWITTER_OAUTH_TOKEN_SECRET']
+      end
+    end
+
+    def update
+      info = @twitter.users @config['people'].map { |k,v| v['twitter'] }
+      hash = @config['people'].map do |k,v|
+        identifier = k
+        nickname = v['name']
+        twitter_screen_name = v['twitter']
+        user = info.find {|u| u.screen_name == twitter_screen_name }
+        name = user ? user.name : nickname
+        image_url = user ? user.profile_image_url_https.to_s.gsub(/_normal\./,'.') : '/images/someone.png'
+        description = user ? user.description : ''
+
+        v['display_name'] = name
+        v['image_url'] = image_url
+        v['description'] = description
+        [k,v]
+      end.to_h
+      File.open('people.yml', 'w') {|f| f.write hash.to_yaml }
+    end
   end
 end
 
