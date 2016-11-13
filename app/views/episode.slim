@@ -1,12 +1,25 @@
-.hero
+.episode
   h2= episode.title
-  p
-    span.date= episode.date.strftime('%Y/%-m/%-d')
+
+  .date= episode.date.strftime('%Y/%-m/%-d')
+
+  .audio-player
+    audio controls="controls" src=(@config['url'] + episode.audio_file_url)
+    .info
+      .item
+        == '🕒 時間: '
+        span= episode.duration.content
+      .item
+        a href=episode.audio_file_url 💾 Download the audio file
 
   p= episode.description
 
   h3 Starring
 
-  p= episode.starring
+  #starring= partial 'people/person', collection: episode.starring
 
   == episode.body
+  p
+    = '是非このエピソードの感想を'
+    = link_to "Twitterでつぶやいてください", "https://twitter.com/intent/tweet?text=%23#{@config['hashtag']}%20ep#{episode.no}%20"
+    = "! (←ハッシュタグ ##{@config['hashtag']} が自動でつきます (便利だな))"
