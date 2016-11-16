@@ -16,7 +16,7 @@ html
   body
     header
       h1.title
-        a href="/" わしのポッドキャスト
+        = link_to @config['title'], "/"
       .header-logo
         img src="/images/logo.svg" alt="わしポ powered by Nyoho"
 
