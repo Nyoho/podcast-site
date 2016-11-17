@@ -39,34 +39,30 @@ html
         = yield
 
       footer.footer role="contentinfo"
-        .footer-logo
-          img alt=("Logo image") src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png" /
         .footer-links
           ul
             li
               h3 Content
             li
-              a href="javascript:void(0)"  About
+              a href="/" Top
             li
-              a href="javascript:void(0)"  Contact
-            li
-              a href="javascript:void(0)"  Products
+              a href="https://nyoho.jp" Nyoho.jp
           ul
             li
-              h3 Follow Us
+              h3 Follow me
             li
-              a href="javascript:void(0)"  Facebook
+              a href="http://twitter.com/NeXTSTEP2OSX" Twitter
             li
-              a href="javascript:void(0)"  Twitter
-            li
-              a href="javascript:void(0)"  YouTube
+              a href="https://www.youtube.com/user/NyohoVideo/" NyohoVideo (YouTube)
           ul
             li
-              h3 Legal
+              h3 Subscribe me
             li
-              a href="javascript:void(0)"  Terms and Conditions
+              a href="/podcast.rss" RSS feedを直接購読
             li
-              a href="javascript:void(0)"  Privacy Policy
+              a href=@config['itunes_podcast_url'] iTunesで購読
+            li
+              a href=@config['android_podcast_url'] Androidで購読
         hr/
         p Copyright &copy; 2016 Nyoho. All rights reserved.
 
