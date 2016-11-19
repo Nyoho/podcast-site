@@ -8,6 +8,10 @@
 @import "people"
 @import "dropmenu"
 
+$main-text-margin: 48px
+$mobile-main-text-margin: 13px
+$stick-out-width: 150px
+
 body
   font-family: "Hiragino Maru Gothic W4 JIS2004", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "Helvetica Neue", Helvetica, Arial, sans-serif, 'Avenir Next', Quicksand, Arial, 'Yu Gothic', 游ゴシック体, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro'
   font-weight: 500
@@ -89,15 +93,21 @@ main
   h2
     border-bottom: 1px solid #4488AA
     padding: 17px 0 17px ($main-text-margin - 3px)
+    @include media($mobile)
+      padding: 17px 0 17px ($mobile-main-text-margin - 3px)
   h3
     border-left: 3px solid #3886B8
-    padding: 7px 0 7px ($main-text-margin - 3px)
     margin: 32px 0 16px 0
-  p, ul
+    padding: 7px 0 7px ($main-text-margin - 3px)
+    @include media($mobile)
+      padding: 7px 0 7px ($mobile-main-text-margin - 3px)
+  p, ul, .audio-player
     margin: 0 $main-text-margin 1em
+    @include media($mobile)
+      margin: 0 $mobile-main-text-margin 1em
   ul
-    padding-left: 2em
     list-style-type: disc
+
 .date
   color: black
   font-family: 'Avenir Next', Quicksand, Arial, sans-serif
