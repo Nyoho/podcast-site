@@ -6,15 +6,6 @@ require 'pry-byebug'
 
 Sitespec.configuration.build_path = '_site'
 
-module Sitespec
-  class Artifact
-    def generate_file
-      puts path ; puts response.body.encoding
-      pathname.binwrite(response.body)
-    end
-  end
-end
-
 describe 'Sitespec' do
   let(:app) do
     PodcastSite::App
