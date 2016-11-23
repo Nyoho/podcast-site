@@ -20,6 +20,6 @@
 
   == episode.body
   p
-    = '是非このエピソードの感想を'
-    = link_to "Twitterでつぶやいてください", "https://twitter.com/intent/tweet?text=%23#{@config['hashtag']}%20ep#{episode.no}%20"
+    = '⌨️📱 是非このエピソードの感想を'
+    = link_to "Twitterでつぶやいてください", "https://twitter.com/intent/tweet?text=%23#{@config['hashtag']}%20ep#{episode.no}%20#{@config['url']}/#{episode.no}/%20"
     = "! (←ハッシュタグ ##{@config['hashtag']} が自動でつきます (便利だな))"
