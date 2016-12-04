@@ -29,4 +29,14 @@ describe 'Sitespec' do
       end
     end
   end
+
+  Dir.glob('public/images/*').each do |filepath|
+    describe "GET #{filepath}", :sitespec do
+      it "Generate static images #{filepath}" do
+        filename = filepath.match(/public\/images\/(.+)$/)[1]
+        path = "/images/#{filename}"
+        expect(get(path).status).to eq 200
+      end
+    end
+  end
 end
