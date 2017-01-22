@@ -87,6 +87,13 @@ nav
     display: table-cell
     padding: 4px
 
+h2, h3
+  font-family: Superclarendon, AvenirNextCondensed, AvenirNext, "Helvetica Neue", "Helvetica", "Arial", 'Hiragino Kaku Gothic ProN', メイリオ, Meiryo, sans-serif
+  font-weight: bold
+  font-style: normal
+  color: #646464
+  text-rendering: optimizeLegibility
+
 main
   margin: 0 auto
   padding-bottom: 42px
@@ -102,10 +109,31 @@ main
     padding: 7px 0 7px ($main-text-margin - 3px)
     @include media($mobile)
       padding: 7px 0 7px ($mobile-main-text-margin - 3px)
-  p, ul, .audio-player
-    margin: 0 $main-text-margin 1em
+  h4
+    margin: 16px 0 8px 0
+    padding: 7px 0 7px ($main-text-margin - 3px)
+    font-size: normal
+    position: relative
+    display: inline-block
+    top: 0
+    overflow: hidden
     @include media($mobile)
-      margin: 0 $mobile-main-text-margin 1em
+      padding: 7px 0 7px ($mobile-main-text-margin - 3px)
+    &:before
+      content: ''
+      position: absolute
+      bottom: 0
+      height: 0
+      width: 100%
+      border-bottom: 1px solid #3886B8
+      z-index: 0
+
+  p, ul, .audio-player
+    margin: 0 $main-text-margin
+    @include media($mobile)
+      margin: 0 $mobile-main-text-margin
+  p, .audio-player
+    margin-top: 1em
   ul
     list-style-type: disc
 
@@ -125,11 +153,16 @@ main
     position: absolute
     float: left
     top: 0
+    margin-top: 1em
     margin-left: -$stick-out-width
     width: $stick-out-width
     padding: 7px 8px
     text-align: right
     line-height: 23px
+
+#episodes
+  .date
+    margin-top: 0
 
 main
   padding: 1em 0
@@ -138,8 +171,6 @@ main
 .episode
   position: relative
   padding: 0 0 1em 0
-  h3
-    margin: 0 0
   > ul
     padding-left: 2em
     
