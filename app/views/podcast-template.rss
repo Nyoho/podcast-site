@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+  <channel>
+    <atom:link href="https://example.net/hogehoge.rss" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://example.net/hogehoge.rss" rel="next" type="application/rss+xml"/>
+    <title>title</title>
+    <link>https://example.net</link>
+    <pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
+    <lastBuildDate>Tue, 01 Nov 2016 00:00:00 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <language>ja</language>
+    <copyright>All rights reserved</copyright>
+    <webMaster>someone (someone@example.net)</webMaster>
+    <description>description</description>
+    <itunes:subtitle>subtitle for iTunes</itunes:subtitle>
+    <itunes:owner>
+      <itunes:name>someone</itunes:name>
+      <itunes:email>smeone@example.net</itunes:email>
+    </itunes:owner>
+    <itunes:author>someone</itunes:author>
+    <itunes:explicit>no</itunes:explicit>
+    <itunes:image href="https://example.net/image.png"/>
+    <image>
+      <url>https://example.net/image.png</url>
+      <title>someone</title>
+      <link></link>
+    </image>
+    <itunes:category text="Technology"/>
+    <item>
+      <guid isPermaLink="false"></guid>
+      <title>1</title>
+      <pubDate>Thu, 01 Sep 2016 10:41:48 +0000</pubDate>
+      <link>https://example.net/1</link>
+      <itunes:duration>00:30:00</itunes:duration>
+      <itunes:author>someone</itunes:author>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:summary>summary is here.</itunes:summary>
+      <itunes:subtitle>subtitle is here.</itunes:subtitle>
+      <description>description is here.</description>
+      <enclosure type="audio/mpeg" url="https://example.net/1.mp3" length="65537"/>
+      <itunes:image href="https://example.net/image.png"/>
+    </item>
+  </channel>
+</rss>
