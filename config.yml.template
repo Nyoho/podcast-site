@@ -12,6 +12,7 @@ author: washi
 description: This is a podcast.
 description_long: This is a podcast. That\'s it.
 sound_cloud_rss: http://feeds.soundcloud.com/users/soundcloud:*******/sounds.rss
+use_sound_cloud: true
 hashtag: same_hashtag
 itunes_podcast_url: 
 android_podcast_url: 

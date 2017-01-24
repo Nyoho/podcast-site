@@ -2,4 +2,20 @@
 
 
 
+Write config.yml
 
+Fetch people info
+#+BEGIN_SRC sh
+bundle exec padrino rake people_info
+#+END_SRC
+
+Generate with sitespec
+#+BEGIN_SRC sh
+bundle exec rspec
+#+END_SRC
+
+#+BEGIN_SRC sh
+rspec
+rsync -avz public/files/* example.net:/var/www/podcast-site/files/
+rsync -avz _site/* example.net:/var/www/podcast-site/
+#+END_SRC

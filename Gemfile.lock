@@ -45,6 +45,8 @@ GEM
     mime-types (2.99.3)
     minitest (5.10.1)
     moneta (0.8.1)
+    mp3info (0.8.5)
+      ruby-mp3info (>= 0.8.5)
     multipart-post (2.0.0)
     mustermann19 (0.4.4)
       enumerable-lazy
@@ -114,6 +116,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
+    ruby-mp3info (0.8.10)
     sass (3.4.23)
     simple_oauth (0.3.1)
     sinatra (1.4.7)
@@ -154,6 +157,7 @@ DEPENDENCIES
   bitters
   bourbon
   dotenv
+  mp3info
   neat
   padrino (= 0.13.3.2)
   pry
