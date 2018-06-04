@@ -89,7 +89,7 @@ EOS
       rss.channel.webMaster = @config['email']
 
       rss.channel.link = @config['url']
-      rss.channel.image.url = rss.channel.itunes_image.href = @config['url'] + '/images/artwork.png'
+      rss.channel.image.url = rss.channel.itunes_image.href = @config['url'] + '/' + @config['artwork_image_path']
       rss.channel.itunes_owner.itunes_email = @config['email']
 
       if @config['use_sound_cloud']
