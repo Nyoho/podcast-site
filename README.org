@@ -1,6 +1,6 @@
 #+TITLE: A website project for distribution of a podcast
 
-
+** Usage
 
 Write config.yml
 
@@ -8,6 +8,8 @@ Fetch people info
 #+BEGIN_SRC sh
 bundle exec padrino rake people_info
 #+END_SRC
+
+Write your episodes into the folder =./episodes/= like =episode/1.html=.
 
 Generate with sitespec
 #+BEGIN_SRC sh
@@ -18,4 +20,9 @@ bundle exec rspec
 rspec
 rsync -avz public/files/* example.net:/var/www/podcast-site/files/
 rsync -avz _site/* example.net:/var/www/podcast-site/
+#+END_SRC
+
+To start a local webserver, execute the following.
+#+BEGIN_SRC sh
+bundle exec padrino s
 #+END_SRC
