@@ -80,7 +80,7 @@ EOS
     end
     
     def rss_feed
-      url = @config['use_sound_cloud'] ? @config['sound_cloud_rss'] : 'app/views/podcast-template.rss'
+      url = @config['use_sound_cloud'] || 'app/views/podcast-template.rss'
       rss = RSS::Parser.parse(url)
       rss.channel.title = @config['title']
       rss.channel.itunes_author = @config['author']
