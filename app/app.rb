@@ -110,6 +110,8 @@ EOS
       else
         rss.channel.itunes_owner.itunes_name = @config['author']
         rss.channel.itunes_subtitle = @config['description']
+        rss.channel.image.title = @config['title']
+        rss.channel.image.link = @config['url']
 
         item_template = rss.items.pop
         sorted_episodes.each do |episode|
