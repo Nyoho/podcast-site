@@ -2,20 +2,21 @@
 
 ** Usage
 
-Write config.yml
+Write =config.yml=.
 
-Fetch people info
+Fetch people info.
 #+BEGIN_SRC sh
 bundle exec padrino rake people_info
 #+END_SRC
 
 Write your episodes into the folder =./episodes/= like =episode/1.html=.
 
-Generate with sitespec
+Generate with =sitespec=.
 #+BEGIN_SRC sh
 bundle exec rspec
 #+END_SRC
 
+Deploy with =rsync= or somthing like that.
 #+BEGIN_SRC sh
 rspec
 rsync -avz public/files/* example.net:/var/www/podcast-site/files/
