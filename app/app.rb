@@ -6,7 +6,8 @@ require 'mp3info'
 
 module PodcastSite
   class App < Padrino::Application
-    register SassInitializer
+    # register SassInitializer
+    SassC.load_paths << Padrino.root('app/stylesheets')
     register Padrino::Mailer
     register Padrino::Helpers
     enable :sessions
@@ -29,6 +30,12 @@ module PodcastSite
         config.access_token        = ENV['TWITTER_OAUTH_TOKEN']
         config.access_token_secret = ENV['TWITTER_OAUTH_TOKEN_SECRET']
       end
+    end
+
+    get '/stylesheets/main.css' do
+      content_type :css
+      sass_string = File.read(Padrino.root('app/stylesheets') + '/main.sass')
+      SassC::Engine.new(sass_string, style: :compressed, syntax: 'sass').render
     end
 
     get '/podcast.rss' do
