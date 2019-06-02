@@ -9,3 +9,4 @@ db/*.db
 _site/*
 .env
 config.yml
+people.yml
