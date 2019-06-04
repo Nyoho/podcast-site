@@ -7,7 +7,7 @@ $great-wide: new-breakpoint(min-width ($max-width + (2 * $stick-out-width)) 8)
 $tablet: new-breakpoint(max-width 768px 8)
 $mobile: new-breakpoint(max-width 480px 4)
 
-$grid-configuration: ('columns': 12, 'layouts': ('small': 'max-width: 480px', 'medium': 'max-width: 768px', 'large': 'max-width: #{$max-width + (2 * $stick-out-width)}' ) )
+$grid-configuration: ('columns': 12, 'layouts': ('small': 'max-width: 480px', 'medium': 'max-width: #{$max-width}', 'large': 'min-width: #{$max-width + (2 * $stick-out-width)}' ) )
 
 @mixin media($size)
   @media screen and (#{map-get(map-get($grid-configuration, 'layouts'), $size)})

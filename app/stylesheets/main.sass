@@ -13,12 +13,19 @@ $stick-out-width: 150px
 @mixin outer-container
   margin-left: auto
   margin-right: auto
-  max-width: 980px
-  overflow: hidden
+  max-width: $max-width
   width: 100%;
 
 html, body
   height: 100%
+
+html
+  box-sizing: border-box
+
+*,
+*::before,
+*::after
+  box-sizing: inherit
 
 body
   font-family: "Hiragino Maru Gothic W4 JIS2004", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "Helvetica Neue", Helvetica, Arial, sans-serif, 'Avenir Next', Quicksand, Arial, 'Yu Gothic', 游ゴシック体, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro'
@@ -30,18 +37,23 @@ body
   background-color: #555
   background-size: cover
 
+h1
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir", "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans", "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu", "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif
+
 header
   @include outer-container
   overflow: hidden
   width: 100%
   color: white
   a
+    text-decoration: none
     color: white
     &:hover
       color: white
   h1
     margin: 1ex 0
-    @include media(small)
+    font-size: 1.25em
+    @include media(medium)
       padding-left: ($mobile-main-text-margin - 3px)
 
 nav
@@ -76,6 +88,10 @@ nav
   box-shadow: 0px 0px 32px -4px rgba(0,0,0,0.75)
 
   nav
+    ul, li
+      margin: 0
+      padding: 0
+      list-style-type: none
     a
       color: white
 
@@ -106,6 +122,9 @@ main
   margin: 0 auto
   padding-bottom: 42px
   background-color: #fff
+  a
+    color: #1565c0
+    text-decoration: none
   h2
     border-bottom: 1px solid #4488AA
     padding: 17px 0 17px ($main-text-margin - 3px)
