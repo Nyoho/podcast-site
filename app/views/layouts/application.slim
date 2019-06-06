@@ -10,6 +10,11 @@ html
     meta content=@config['description'] name="description"
     meta content="Nyoho" name="Author"
     meta property="og:image" content=@ogimage_url
+    meta property="og:url" content=@config['url']+request.path
+    meta property="og:type" content="website"
+    meta property="og:title" content=@title
+    meta property="og:description" content=@config['description']
+    meta property="og:updated_time" content="Date.now"
     link rel="alternate" type="application/rss+xml" href="/podcast.rss"
     = javascript_include_tag 'script'
     = stylesheet_link_tag :main
