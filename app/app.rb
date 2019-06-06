@@ -65,6 +65,7 @@ EOS
 
     get "/:no" do |no|
       @title = episodes_table[no].title + ' - ' + @config['title']
+      @updated_time = episodes_table[no].date
       slim :episode, locals: {
         episode: episodes_table[no]
       }

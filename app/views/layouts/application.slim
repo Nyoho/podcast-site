@@ -14,7 +14,8 @@ html
     meta property="og:type" content="website"
     meta property="og:title" content=@title
     meta property="og:description" content=@config['description']
-    meta property="og:updated_time" content="Date.now"
+    - if @updated_time
+      meta property="og:updated_time" content=@updated_time
     link rel="alternate" type="application/rss+xml" href="/podcast.rss"
     = javascript_include_tag 'script'
     = stylesheet_link_tag :main
