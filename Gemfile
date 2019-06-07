@@ -38,10 +38,6 @@ gem 'dotenv'
 gem 'twitter'
 gem 'mp3info'
 
-gem 'bourbon'
-gem 'neat'
-gem 'bitters'
-
 group :development do
   gem 'pry'
   gem 'pry-byebug'
