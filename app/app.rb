@@ -3,11 +3,11 @@ require 'open-uri'
 require 'twitter'
 require 'rss'
 require 'mp3info'
+require 'sassc'
 
 module PodcastSite
   class App < Padrino::Application
     # register SassInitializer
-    SassC.load_paths << Padrino.root('app/stylesheets')
     register Padrino::Mailer
     register Padrino::Helpers
     enable :sessions
@@ -35,7 +35,11 @@ module PodcastSite
     get '/stylesheets/main.css' do
       content_type :css
       sass_string = File.read(Padrino.root('app/stylesheets') + '/main.sass')
-      SassC::Engine.new(sass_string, style: :compressed, syntax: 'sass').render
+      SassC::Engine.new(sass_string,
+                        style: :compressed,
+                        syntax: 'sass',
+                        load_paths: [Padrino.root('app/stylesheets')]
+                       ).render
     end
 
     get '/podcast.rss' do
