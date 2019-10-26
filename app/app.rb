@@ -49,6 +49,7 @@ module PodcastSite
 
     get "/" do
       @title = @config['title']
+      @description = @config['description']
       slim :top, locals: { episodes: sorted_episodes }
     end
 
@@ -70,6 +71,7 @@ EOS
     get "/:no" do |no|
       @title = episodes_table[no].title + ' - ' + @config['title']
       @updated_time = episodes_table[no].date
+      @description = episodes_table[no].description
       slim :episode, locals: {
         episode: episodes_table[no]
       }
