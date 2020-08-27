@@ -4,6 +4,7 @@ require 'twitter'
 require 'rss'
 require 'mp3info'
 require 'sassc'
+require 'json'
 
 module PodcastSite
   class App < Padrino::Application
@@ -230,9 +231,20 @@ EOS
         identifier = k
         nickname = v['name']
         twitter_screen_name = v['twitter']
+        github_name = v['github']
         user = info.find {|u| u.screen_name == twitter_screen_name }
         name = user ? user.name : nickname
-        image_url = user ? user.profile_image_url_https.to_s.gsub(/_normal\./,'.') : '/images/someone.png'
+        github_avatar_url = if user.nil? and github_name then
+                              json = open("https://api.github.com/users/#{github_name}").read
+                              JSON.parse(json)['avatar_url']
+                            end
+        image_url = if user
+                      user.profile_image_url_https.to_s.gsub(/_normal\./,'.')
+                    elsif github_avatar_url
+                      github_avatar_url
+                    else
+                      '/images/someone.png'
+                    end
         description = user ? user.description : ''
 
         v['display_name'] = name
