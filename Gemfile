@@ -23,7 +23,7 @@ gem 'slim'
 # Test requirements
 
 # Padrino Stable Gem
-gem 'padrino', '~> 0.15.0'
+gem 'padrino', '~> 0.15.1'
 
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'
