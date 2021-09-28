@@ -37,9 +37,11 @@ gem 'sitespec'
 gem 'dotenv'
 gem 'twitter'
 gem 'mp3info'
+gem 'rss'
 
 group :development do
   gem 'pry'
   gem 'pry-byebug'
+  gem 'puma'
 end
 
