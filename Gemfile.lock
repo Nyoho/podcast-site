@@ -149,7 +149,7 @@ PLATFORMS
 DEPENDENCIES
   dotenv
   mp3info
-  padrino (~> 0.15.0)
+  padrino (~> 0.15.1)
   pry
   pry-byebug
   puma
