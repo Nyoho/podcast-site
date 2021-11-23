@@ -155,7 +155,7 @@ main
       border-bottom: 1px solid #3886B8
       z-index: 0
 
-  p, ul, .audio-player
+  p, > .episode > ul, .audio-player
     margin: 0 $main-text-margin
     @include media(small)
       margin: 0 $mobile-main-text-margin
@@ -200,6 +200,8 @@ main
   padding: 0 0 1em 0
   > ul
     padding-left: 2em
+  ul
+    padding-left: 1.5em
     
 .audio-player
   audio
