@@ -21,7 +21,7 @@ module PodcastSite
       @config = YAML.load_file('config.yml')
       @people = YAML.load_file('people.yml')
       @ogimage_url = @config['url'] + '/images/ogimage.jpg'
-      rss_feed
+      @rss_feed = rss_feed
     end
 
     def setup_twitter
@@ -121,6 +121,8 @@ EOS
           episode.original_audio_file_url =  item.enclosure.url
           item.enclosure.url = @config['url'] + episode.audio_file_url
           episode.duration = item.itunes_duration
+          item.guid.isPermaLink = true
+          item.guid.content = item.link
         end
       else
         rss.channel.itunes_owner.itunes_name = @config['author']
@@ -144,10 +146,12 @@ EOS
           # item.itunes_duration is RSS::ITunesItemModel::ITunesDuration
           item.itunes_duration.value = Time.at(Mp3Info.open('./public' + episode.audio_file_url).length).utc.strftime("%H:%M:%S")
           episode.duration = item.itunes_duration
+          item.guid.isPermaLink = true
+          item.guid.content = item.link
           rss.items << item
         end
       end
-      @rss_feed = rss.to_s
+      rss.to_s
     end
 
     ##
