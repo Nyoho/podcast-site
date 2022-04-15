@@ -6,6 +6,17 @@ require 'mp3info'
 require 'sassc'
 require 'json'
 
+# monkey patch
+# https://teratail.com/questions/107861
+class RSS::Rss::Channel::Item
+  def description_element need_convert, indent
+    markup = "#{indent}<description>"
+    markup << "<![CDATA[#{@description}]]>"
+    markup << '</description>'
+    markup
+  end
+end
+
 module PodcastSite
   class App < Padrino::Application
     # register SassInitializer
