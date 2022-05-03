@@ -87,7 +87,7 @@ GEM
     puma (5.5.2)
       nio4r (~> 2.0)
     rack (2.2.3)
-    rack-protection (2.1.0)
+    rack-protection (2.2.0)
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -113,10 +113,10 @@ GEM
     sassc (2.4.0)
       ffi (~> 1.9)
     simple_oauth (0.3.1)
-    sinatra (2.1.0)
+    sinatra (2.2.0)
       mustermann (~> 1.0)
       rack (~> 2.2)
-      rack-protection (= 2.1.0)
+      rack-protection (= 2.2.0)
       tilt (~> 2.0)
     sitespec (1.2.1)
       rack-test
