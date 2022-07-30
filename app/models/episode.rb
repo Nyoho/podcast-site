@@ -29,8 +29,8 @@ class Episode
 
   def body
     @body ||= begin
-                ERB.new(File.read(path)).result(binding)
-              end
+      ERB.new(File.read(path)).result(binding)
+    end
   end
 
   def audio_file_url
