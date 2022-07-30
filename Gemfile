@@ -43,5 +43,9 @@ group :development do
   gem 'pry'
   gem 'pry-byebug'
   gem 'puma'
+
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rspec'
 end
 
