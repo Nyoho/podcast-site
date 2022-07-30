@@ -1,0 +1,23 @@
+name: rubocop-todo-corrector
+
+on:
+  pull_request:
+    types:
+      - closed
+  workflow_dispatch:
+    inputs:
+      cop_name:
+        description: Pass cop name if you want to pick a specific cop.
+        required: false
+        type: string
+      ignore:
+        description: Check this with cop_name if you want to ignore a specific cop.
+        required: false
+        type: boolean
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: r7kamura/rubocop-todo-corrector@v0
+        with:
+          ignore: ${{ inputs.ignore }}
