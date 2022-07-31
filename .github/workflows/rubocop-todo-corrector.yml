@@ -18,7 +18,7 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: r7kamura/rubocop-todo-corrector@feature/gh-pr-create-options
+      - uses: r7kamura/rubocop-todo-corrector@v0
         with:
           cop_name: ${{ github.event.inputs.cop_name }}
           ignore: ${{ inputs.ignore }}
