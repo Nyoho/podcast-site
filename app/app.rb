@@ -71,13 +71,13 @@ module PodcastSite
 
     get '/return-setting.conf' do
       content_type 'plain/text'
-      episodes_table.values.map {|e|
+      episodes_table.values.map do |e|
         <<"EOS"
 location #{e.audio_file_url} {
     return 307 #{e.original_audio_file_url};
 }
 EOS
-      }.join
+      end.join
     end
 
     get "/:no" do |no|
