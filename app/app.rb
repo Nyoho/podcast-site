@@ -123,11 +123,11 @@ EOS
         rss.items.each do |item|
           episode = episodes_table[item.title]
           item.title = episode.title
-          item.link = %Q(#{@config['url']}/#{episode.no}/)
+          item.link = %Q(#{@config["url"]}/#{episode.no}/)
           item.itunes_author = @config['author']
           item.pubDate = episode.date.strftime('%a, %e %b %Y %H:%M:%S %z')
           item.itunes_subtitle = episode.description
-          item.description = %Q(#{episode.body}\n<p>この説明は <a href="#{item.link}">#{item.link}</a> でも見られます。</p>\n<p>#{episode.description}</p>\n<p>⌨️📱是非このエピソードの感想を<a href=\"https://twitter.com/intent/tweet?text=%23#{@config['hashtag']}%20ep#{episode.no}%20#{item.link}%20\">Twitterでつぶやいてください</a> (このlinkならハッシュタグ ##{@config['hashtag']} が自動でつきます)!</p>)
+          item.description = %Q(#{episode.body}\n<p>この説明は <a href="#{item.link}">#{item.link}</a> でも見られます。</p>\n<p>#{episode.description}</p>\n<p>⌨️📱是非このエピソードの感想を<a href=\"https://twitter.com/intent/tweet?text=%23#{@config["hashtag"]}%20ep#{episode.no}%20#{item.link}%20\">Twitterでつぶやいてください</a> (このlinkならハッシュタグ ##{@config["hashtag"]} が自動でつきます)!</p>)
           item.itunes_summary = nil
           episode.original_audio_file_url =  item.enclosure.url
           item.enclosure.url = @config['url'] + episode.audio_file_url
@@ -145,11 +145,11 @@ EOS
         sorted_episodes.each do |episode|
           item = Marshal.load(Marshal.dump(item_template))
           item.title = episode.title
-          item.link = %Q(#{@config['url']}/#{episode.no}/)
+          item.link = %Q(#{@config["url"]}/#{episode.no}/)
           item.itunes_author = @config['author']
           item.pubDate = episode.date.strftime('%a, %e %b %Y %H:%M:%S %z')
           item.itunes_subtitle = episode.description
-          item.description = %Q(<p>#{episode.description}</p>\n#{episode.body}\n<p>この説明は <a href="#{item.link}">#{item.link}</a> でも見られます。</p>\n<p>⌨️📱是非このエピソードの感想を<a href=\"https://twitter.com/intent/tweet?text=%23#{@config['hashtag']}%20ep#{episode.no}%20#{item.link}%20\">Twitterでつぶやいてください</a> (このlinkならハッシュタグ ##{@config['hashtag']} が自動でつきます)!</p>)
+          item.description = %Q(<p>#{episode.description}</p>\n#{episode.body}\n<p>この説明は <a href="#{item.link}">#{item.link}</a> でも見られます。</p>\n<p>⌨️📱是非このエピソードの感想を<a href=\"https://twitter.com/intent/tweet?text=%23#{@config["hashtag"]}%20ep#{episode.no}%20#{item.link}%20\">Twitterでつぶやいてください</a> (このlinkならハッシュタグ ##{@config["hashtag"]} が自動でつきます)!</p>)
           item.itunes_summary = nil
           item.enclosure.url = @config['url'] + episode.audio_file_url
           episode.original_audio_file_url = item.enclosure.url
