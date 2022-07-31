@@ -14,9 +14,6 @@ on:
         description: Check this with cop_name if you want to ignore a specific cop.
         required: false
         type: boolean
-      label:
-        description: A label
-        default: rubocop-todo-corrector
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -24,3 +21,4 @@ jobs:
       - uses: r7kamura/rubocop-todo-corrector@v0
         with:
           ignore: ${{ inputs.ignore }}
+          label: rubocop-todo-corrector
