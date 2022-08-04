@@ -8,7 +8,7 @@ class Episode
   end
 
   def no
-    path.match(/episodes\/(.+)\.html/)[1]
+    path.match(%r{episodes/(.+)\.html})[1]
   end
 
   def date

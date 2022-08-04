@@ -28,7 +28,7 @@ describe 'Sitespec' do
   Dir.glob('episodes/*.html').each do |filepath|
     describe "GET #{filepath}", :sitespec do
       it "generate event page #{filepath}" do
-        episode_no = filepath.match(/episodes\/(.+)\.html/)[1]
+        episode_no = filepath.match(%r{episodes/(.+)\.html})[1]
         path = "/#{episode_no}/"
         expect(get(path).status).to eq 200
       end
@@ -42,7 +42,7 @@ describe 'Sitespec' do
       # p filepath
       # break Sitespec::Artifact#create
       it "Generate a static image #{filepath}" do
-        filename = filepath.match(/public\/images\/(.+)$/)[1]
+        filename = filepath.match(%r{public/images/(.+)$})[1]
         path = "/images/#{filename}"
         expect(get(path).status).to eq 200
       end
