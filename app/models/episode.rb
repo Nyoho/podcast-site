@@ -15,7 +15,7 @@ class Episode
     begin
       @date = DateTime.parse(@date) if @date.class == String
     rescue
-      STDERR.puts "Parse error date from file: path"
+      warn "Parse error date from file: path"
     end
     @date
   end
