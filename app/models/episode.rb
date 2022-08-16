@@ -1,7 +1,7 @@
 class Episode
   attr_reader :path, :title, :description
   attr_accessor :original_audio_file_url, :duration
-  
+
   def initialize(path)
     @path = path
     body
