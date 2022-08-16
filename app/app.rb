@@ -65,7 +65,7 @@ module PodcastSite
       slim :top, locals: { episodes: sorted_episodes }
     end
 
-    get :about, :map => '/about' do
+    get :about, map: '/about' do
       render :slim, "p About"
     end
 
