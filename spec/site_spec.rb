@@ -35,7 +35,6 @@ describe 'Sitespec' do
     end
   end
 
- 
   Dir.glob('public/images/*').each do |filepath|
     describe "GET #{filepath}", :sitespec do
       # require 'pry' ; binding.pry

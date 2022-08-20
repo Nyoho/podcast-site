@@ -104,7 +104,7 @@ EOS
     def sorted_episodes
       episodes_table.values.sort {|a,b| b.date <=> a.date }
     end
-    
+
     def rss_feed
       url = @config['use_sound_cloud'] || 'app/views/podcast-template.rss'
       rss = RSS::Parser.parse(url)
