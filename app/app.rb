@@ -102,7 +102,7 @@ EOS
     end
 
     def sorted_episodes
-      episodes_table.values.sort {|a,b| b.date <=> a.date }
+      episodes_table.values.sort {|a, b| b.date <=> a.date }
     end
 
     def rss_feed
@@ -241,8 +241,8 @@ EOS
     end
 
     def update
-      info = @twitter.users @config['people'].map { |k,v| v['twitter'] }
-      hash = @config['people'].map do |k,v|
+      info = @twitter.users @config['people'].map { |k, v| v['twitter'] }
+      hash = @config['people'].map do |k, v|
         identifier = k
         nickname = v['name']
         twitter_screen_name = v['twitter']
@@ -254,7 +254,7 @@ EOS
                               JSON.parse(json)['avatar_url']
                             end
         image_url = if user
-                      user.profile_image_url_https.to_s.gsub(/_normal\./,'.')
+                      user.profile_image_url_https.to_s.gsub(/_normal\./, '.')
                     elsif github_avatar_url
                       github_avatar_url
                     else
@@ -265,7 +265,7 @@ EOS
         v['display_name'] = name
         v['image_url'] = image_url
         v['description'] = description
-        [k,v]
+        [k, v]
       end.to_h
       File.open('people.yml', 'w') {|f| f.write hash.to_yaml }
     end
