@@ -241,7 +241,7 @@ EOS
     end
 
     def update
-      info = @twitter.users @config['people'].map { |k, v| v['twitter'] }
+      info = @twitter.users @config['people'].map { |_k, v| v['twitter'] }
       hash = @config['people'].map do |k, v|
         identifier = k
         nickname = v['name']
