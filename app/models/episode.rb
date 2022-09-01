@@ -21,9 +21,7 @@ class Episode
   end
 
   def starring
-    if @starring.class == String
-      @starring = @starring.split(/\s+/)
-    end
+    @starring = @starring.split(/\s+/) if @starring.class == String
     @starring
   end
 
