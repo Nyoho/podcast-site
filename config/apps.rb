@@ -27,10 +27,10 @@
 #
 Padrino.configure_apps do
   # enable :sessions
-  set :session_secret, '994f2db93a0c979970a9d66a3145f1c56c5f24ce4f75a62292b7c1e1de63a9b2'
+  set :session_secret, "994f2db93a0c979970a9d66a3145f1c56c5f24ce4f75a62292b7c1e1de63a9b2"
   set :protection, except: :path_traversal
   set :protect_from_csrf, true
 end
 
 # Mounts the core application for this project
-Padrino.mount('PodcastSite::App', app_file: Padrino.root('app/app.rb')).to('/')
+Padrino.mount("PodcastSite::App", app_file: Padrino.root("app/app.rb")).to("/")

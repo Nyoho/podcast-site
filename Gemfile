@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
 # Padrino supports Ruby version 1.9 and later
 # ruby '2.3.1'
@@ -14,16 +14,16 @@ source 'https://rubygems.org'
 # gem 'oj'
 
 # Project requirements
-gem 'rake'
+gem "rake"
 
 # Component requirements
-gem 'sassc'
-gem 'slim'
+gem "sassc"
+gem "slim"
 
 # Test requirements
 
 # Padrino Stable Gem
-gem 'padrino', '~> 0.15.1'
+gem "padrino", "~> 0.15.1"
 
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'
@@ -33,18 +33,18 @@ gem 'padrino', '~> 0.15.1'
 #   gem 'padrino-' + g, '0.13.3.2'
 # end
 
-gem 'sitespec'
-gem 'dotenv'
-gem 'twitter'
-gem 'mp3info'
-gem 'rss'
+gem "sitespec"
+gem "dotenv"
+gem "twitter"
+gem "mp3info"
+gem "rss"
 
 group :development do
-  gem 'pry'
-  gem 'pry-byebug'
-  gem 'puma'
+  gem "pry"
+  gem "pry-byebug"
+  gem "puma"
 
-  gem 'rubocop', require: false
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rspec'
+  gem "rubocop", require: false
+  gem "rubocop-performance", require: false
+  gem "rubocop-rspec"
 end

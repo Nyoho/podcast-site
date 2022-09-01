@@ -1,12 +1,12 @@
 require File.expand_path("../../config/boot.rb", __FILE__)
-require 'sitespec/rspec'
-require './app/app'
-require 'pry'
-require 'pry-byebug'
+require "sitespec/rspec"
+require "./app/app"
+require "pry"
+require "pry-byebug"
 
-Sitespec.configuration.build_path = '_site'
+Sitespec.configuration.build_path = "_site"
 
-describe 'Sitespec' do
+describe "Sitespec" do
   let(:app) do
     PodcastSite::App
   end
@@ -25,7 +25,7 @@ describe 'Sitespec' do
     end
   end
 
-  Dir.glob('episodes/*.html').each do |filepath|
+  Dir.glob("episodes/*.html").each do |filepath|
     describe "GET #{filepath}", :sitespec do
       it "generate event page #{filepath}" do
         episode_no = filepath.match(%r{episodes/(.+)\.html})[1]
@@ -35,7 +35,7 @@ describe 'Sitespec' do
     end
   end
 
-  Dir.glob('public/images/*').each do |filepath|
+  Dir.glob("public/images/*").each do |filepath|
     describe "GET #{filepath}", :sitespec do
       # require 'pry' ; binding.pry
       # p filepath
