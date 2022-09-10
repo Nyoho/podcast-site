@@ -1,4 +1,4 @@
-require File.expand_path("../../config/boot.rb", __FILE__)
+require File.expand_path("../config/boot.rb", __dir__)
 require "sitespec/rspec"
 require "./app/app"
 require "pry"
