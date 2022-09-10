@@ -14,7 +14,7 @@ class Episode
   def date
     begin
       @date = DateTime.parse(@date) if @date.class == String
-    rescue
+    rescue StandardError
       warn "Parse error date from file: path"
     end
     @date
