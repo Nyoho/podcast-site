@@ -25,7 +25,7 @@ gem "slim"
 # Padrino Stable Gem
 gem "padrino", "~> 0.15.1"
 
-gem 'sinatra', '2.2.2'
+gem 'sinatra', '3.0.2'
 
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'
